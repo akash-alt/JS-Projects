@@ -1,0 +1,58 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.container nav.desk{
+  width: 100%;
+  background-color: teal;
+  height: 4rem;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav.desk ul{
+  list-style: none;
+  width: 75%;
+  height: 5rem;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+nav.desk ul li{
+  width: 20%;
+  /* display: flex; */
+  float: left;
+  text-align: center;
+  line-height: 5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: all 0.5s ease;
+  
+}
+
+nav.desk ul li:hover{
+  /* clear: both; */
+  background-color: #a3ada5;
+  height: 4rem;
+
+}
+nav.desk ul li.active{
+  /* clear: both; */
+  background-color: #a3ada5;
+  height: 4rem;
+}
+
+nav.desk ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+

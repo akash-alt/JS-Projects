@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width= , initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    #spinner {
+      display: none;
+    }
+  </style>
+  <title>QR-Code Generator</title>
+</head>
+
+<body>
+  <header class="bg-blue-500 p-4 mb-10">
+    <div class="mx-w-5xl m-auto">
+      <div class="text-xl font-bold text-white">
+        QR Code
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl p-10 md:flex-row">
+      <div class="w-full md:w-2/3 mr-24">
+        <h1 class="text-3xl font-bold mb-5 md:text-4xl">QR Code Generator</h1>
+        <p class="mb-4">
+          QR Codes allow smartphone users to access your website simply and
+          quickly.
+        </p>
+        <p>
+          Enter your URL below to generate a QR Code and download the image.
+        </p>
+
+        <form id="generate-form" class="mt-4">
+          <input id="url" type="url" placeholder="Enter a URL"
+            class="w-full border-2 border-gray-200 rounded p-3 text-grey-dark mr-2 focus:outline-none mb-5" required />
+
+          <select class="w-full border-2 border-gray-200 rounded p-3 text-grey-dark mr-2 focus:outline-none" name="size"
+            id="size">
+            <option value="100">100x100</option>
+            <option value="200">200x200</option>
+            <option value="300" selected>300x300</option>
+            <option value="400">400x400</option>
+            <option value="500">500x500</option>
+            <option value="600">600x600</option>
+            <option value="700">700x700</option>
+          </select>
+          <button class="bg-gray-600 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black" type="submit">
+            Generate QR Code
+          </button>
+        </form>
+      </div>
+      <div class="w-full md:w-1/3 self-center">
+        <img class="w-1/2 m-auto mb-10 md:w-full"
+          src="data:image/png;base64,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"
+          alt="" />
+      </div>
+    </div>
+    <div id="generated" class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20">
+      <!-- Spinner -->
+      <div id="spinner" role="status">
+        <svg class="inline mr-2 w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-pink-600"
+          viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="currentColor" />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentFill" />
+        </svg>
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div id="qrcode" class="m-auto"></div>
+    </div>
+  </main>
+</body>
+
+</html>
