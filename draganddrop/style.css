@@ -1,0 +1,20 @@
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  background-color: black;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.draggable{
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  cursor: move;
+}
+
+.draggable.dragging{
+  opacity: 0.5;
+}

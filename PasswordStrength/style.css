@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(31, 19, 41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box {
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  padding: 13px 40px;
+}
+
+button{
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  right: 160px;
+}
+
+button .fa-arrow-right{
+  border: 1px solid red;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+#message{
+  color: #fff;
+  margin-top: 1rem;
+  display: none;
+}
